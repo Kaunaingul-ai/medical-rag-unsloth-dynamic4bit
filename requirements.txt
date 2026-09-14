@@ -1,0 +1,8 @@
+unsloth
+sentence-transformers
+faiss-cpu
+pypdf
+gradio
+requests
+numpy
+pandas
