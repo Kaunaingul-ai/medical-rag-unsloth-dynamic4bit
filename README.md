@@ -36,35 +36,20 @@ The project was designed to:
 - provide an interactive user-facing demonstration.
 
 ---
-
 ## 🧠 System Architecture
 
-```text
-User Question
-      ↓
-Sentence Transformer Embedding
-      ↓
-FAISS Semantic Retrieval
-      ↓
-Similarity Filtering
-      ↓
-Cross-Encoder Reranking
-      ↓
-Confidence-Based Evidence Selection
-      ↓
-Is sufficient evidence available?
-      ↓
- ┌───────────────┬────────────────────┐
- │ Yes           │ No                 │
- ↓               ↓
-Dynamic 4-bit    Controlled Refusal
-Llama 3.2
-      ↓
-Evidence-Grounded Answer
-      ↓
-Source + Page + Retrieval Metrics
-```
+The system combines a document-indexing pipeline with a guarded Retrieval-Augmented Generation workflow. WHO medical documents are processed into semantic vectors and indexed with FAISS. At query time, retrieved passages are filtered, reranked, and evaluated for evidence sufficiency before the language model is allowed to generate an answer.
 
+![Medical Knowledge RAG System Architecture](assets/system_architecture.png)
+
+### Architecture Highlights
+
+- **Semantic retrieval:** `all-MiniLM-L6-v2` embeddings with FAISS vector search
+- **Retrieval refinement:** similarity filtering and Cross-Encoder reranking
+- **Evidence gating:** generation proceeds only when sufficiently relevant evidence is available
+- **Efficient inference:** Unsloth Dynamic 4-bit Llama 3.2 3B
+- **Source transparency:** document, page, retrieval score, rerank confidence, and response time
+- **Safe refusal:** unsupported queries bypass LLM generation
 ---
 
 ## 🔍 Key Features
