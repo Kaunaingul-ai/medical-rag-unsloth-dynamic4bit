@@ -334,11 +334,12 @@ This project provided practical experience with:
 
 ---
 
-## 👩‍💻 Author
+## Author
 
-**Kaunain Gul Khalid**
+Kaunain Gul Khalid  
+BS Artificial Intelligence Student  
+Generative AI | Machine Learning | Deep Learning
 
-BS Artificial Intelligence  
-University of Malakand
+GitHub: https://github.com/Kaunaingul-ai
 
 Developed as part of a Generative AI internship project and extended into a portfolio-focused implementation of guarded, evidence-grounded Retrieval-Augmented Generation.
